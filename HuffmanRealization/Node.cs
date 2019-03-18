@@ -38,7 +38,27 @@ namespace HuffmanRealization
 
 
         }
-
+        public int FindNumberOfEnds()
+        {
+            int number = 0;
+            RunningNumber(ref number, this);
+            return number;
+        }
+        private void RunningNumber(ref int i, Node node)
+        {
+            if(node.LeftNode != null)
+            {
+                RunningNumber(ref i, node.LeftNode);
+            }
+            if (node.RightNode != null)
+            {
+                RunningNumber(ref i, node.RightNode);
+            }
+            if(node.RightNode == null && node.LeftNode == null)
+            {
+                i++;
+            }
+        }
         //Создание дерева из конечных узлов
         public static Node MakeTreeFromEnds(List<Node> nodes)
         {
@@ -49,6 +69,23 @@ namespace HuffmanRealization
             return nodes.First();
         }
 
+        public static void AttachSymbols(Node node, ref string s)
+        {
+            if(node.LeftNode != null)
+            {
+                AttachSymbols(node.LeftNode, ref s);
+            }
+            if(node.RightNode != null)
+            {
+                AttachSymbols(node.RightNode, ref s);
+            }
+            if(node.RightNode == null && node.LeftNode == null)
+            {
+                node.Symbol = s[0];
+                s = s.Substring(1);
+            }
+        }
+        
 
         public static void CombineMins(List<Node> nodes)
         {
@@ -95,6 +132,6 @@ namespace HuffmanRealization
             nodes.Add(new Node(min, min2));
 
         }
-
+        
     }
 }

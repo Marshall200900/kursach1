@@ -40,6 +40,7 @@
             this.textBox = new System.Windows.Forms.RichTextBox();
             this.compressedTextBox = new System.Windows.Forms.RichTextBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.открытьКодToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -104,7 +105,8 @@
             // менюToolStripMenuItem
             // 
             this.менюToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ToolStripMenuItem});
+            this.ToolStripMenuItem,
+            this.открытьКодToolStripMenuItem});
             this.менюToolStripMenuItem.Name = "менюToolStripMenuItem";
             this.менюToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.менюToolStripMenuItem.Text = "Файл";
@@ -112,7 +114,7 @@
             // ToolStripMenuItem
             // 
             this.ToolStripMenuItem.Name = "ToolStripMenuItem";
-            this.ToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ToolStripMenuItem.Text = "Открыть";
             this.ToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
             // 
@@ -143,6 +145,13 @@
             this.checkBox2.TabIndex = 13;
             this.checkBox2.Text = "Сохранить в файл";
             this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // открытьКодToolStripMenuItem
+            // 
+            this.открытьКодToolStripMenuItem.Name = "открытьКодToolStripMenuItem";
+            this.открытьКодToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.открытьКодToolStripMenuItem.Text = "Открыть код";
+            this.открытьКодToolStripMenuItem.Click += new System.EventHandler(this.открытьКодToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -182,6 +191,7 @@
         private System.Windows.Forms.RichTextBox textBox;
         private System.Windows.Forms.RichTextBox compressedTextBox;
         private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.ToolStripMenuItem открытьКодToolStripMenuItem;
     }
 }
 

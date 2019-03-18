@@ -1,19 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace HuffmanRealization
 {
-    public class Encoding
+    public class EncodingHuffman
     {
         public static Node Root { get; private set; }
+        public static Dictionary<char?, string> BytesStr { get; set; }
+
         private static Dictionary<char?, string> AssignBytesWrapper(Node root, string n)
         {
-            Dictionary<char?, string> bytesStr = new Dictionary<char?, string>();
-            AssignBytes(root, n, bytesStr);
-            return bytesStr;
+            BytesStr = new Dictionary<char?, string>();
+            AssignBytes(root, n, BytesStr);
+            return BytesStr;
         }
 
         private static void AssignBytes(Node node, string n, Dictionary<char?, string> bytesStr)
@@ -74,7 +78,7 @@ namespace HuffmanRealization
         }
 
 
-        public static string Encode(string str)
+        public static string EncodeHuffman(string str)
         {
             if(str == "")
             {
@@ -85,11 +89,34 @@ namespace HuffmanRealization
 
             Root = Node.MakeTreeFromEnds(nodeList);
 
-            Dictionary<char?, string> bytesStr = AssignBytesWrapper(Root, dictionaryList.Count == 1 ? "0" : "");
-            
-            string compressedString = MakeCompressedString(str, bytesStr);
+            Dictionary<char?, string> binaryStr = AssignBytesWrapper(Root, dictionaryList.Count == 1 ? "0" : "");
+
+            string compressedString = MakeCompressedString(str, binaryStr);
 
             return compressedString;
+        }
+        public static string EncodeTree(Node node)
+        {
+            string s = "";
+            Run(node, ref s);
+            return s;
+
+        }
+        private static void Run(Node node, ref string s)
+        {
+            if (node.LeftNode != null)
+            {
+                s += "1";
+                Run(node.LeftNode, ref s);
+            }
+            if (node.RightNode != null)
+            {
+                s += "1";
+                Run(node.RightNode, ref s);
+
+            }
+            s += "0";
+
         }
     }
 }
