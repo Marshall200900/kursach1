@@ -40,6 +40,20 @@ namespace HuffmanRealization
         {
             Node tree = new Node();
             Run(tree, tree, ref s);
+
+            int number = tree.FindNumberOfEnds();
+
+            List<byte> byteList = new List<byte>();
+
+            for (int i = 0; i < number; i++)
+            {
+                byteList.Add(Convert.ToByte(s.Substring(0, 8), 2));
+                s = s.Substring(8);
+
+
+            }
+            string symbols = Encoding.GetEncoding(1251).GetString(byteList.ToArray());
+            Node.AttachSymbols(tree, ref symbols);
             return tree;
         }
         private static void Run(Node tree,Node ptr, ref string s)

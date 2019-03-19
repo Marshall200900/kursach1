@@ -11,6 +11,7 @@ namespace HuffmanRealization
     public class EncodingHuffman
     {
         public static Node Root { get; private set; }
+        public static string RootCode { get; set; }
         public static Dictionary<char?, string> BytesStr { get; set; }
 
         private static Dictionary<char?, string> AssignBytesWrapper(Node root, string n)
@@ -99,6 +100,13 @@ namespace HuffmanRealization
         {
             string s = "";
             Run(node, ref s);
+            foreach (char c in BytesStr.Keys)
+            {
+                var bytes = Encoding.GetEncoding(1251).GetBytes(c.ToString());
+                var binstr = string.Join("", bytes.Select(b => Convert.ToString(b, 2)));
+                s += string.Format("{0:d8}", int.Parse(binstr));
+
+            }
             return s;
 
         }

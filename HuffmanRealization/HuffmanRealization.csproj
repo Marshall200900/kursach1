@@ -48,7 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DecodingHuffman.cs" />
-    <Compile Include="DialogSaving.cs" />
+    <Compile Include="DialogWindows.cs" />
     <Compile Include="EncodingHuffman.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
