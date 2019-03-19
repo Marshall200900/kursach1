@@ -182,7 +182,7 @@ namespace HuffmanRealization
                 MessageBox.Show("Введите текст");
                 return;
             }
-            DialogWindows.Save(EncodingHuffman.RootCode+compressedTextBox.Text, true);
+            DialogWindows.Save(encodedStrWithTree?compressedTextBox.Text: EncodingHuffman.RootCode + compressedTextBox.Text, true);
 
         }
     }

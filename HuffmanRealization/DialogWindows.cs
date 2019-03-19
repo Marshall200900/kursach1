@@ -19,9 +19,11 @@ namespace HuffmanRealization
                 dialog.Filter = "txt files (*.txt)|*.txt";
             if (dialog.ShowDialog() == DialogResult.Cancel)
                 return;
-            var f = File.CreateText(dialog.FileName);
-            f.WriteLine(s);
-            f.Close();
+            //var f = File.CreateText(dialog.FileName);
+            //f.WriteLine(s);
+            //f.Close();
+            File.WriteAllText(dialog.FileName, s, Encoding.GetEncoding(1251));
+
         }
 
 
