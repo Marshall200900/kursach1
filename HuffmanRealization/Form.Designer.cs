@@ -1,6 +1,6 @@
 ﻿namespace HuffmanRealization
 {
-    partial class Form1
+    partial class Form
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form));
             this.encodeBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.decodeBtn = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.менюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.открытьКодToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openText = new System.Windows.Forms.ToolStripMenuItem();
+            this.openCode = new System.Windows.Forms.ToolStripMenuItem();
             this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveCodeBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveTextBtn = new System.Windows.Forms.ToolStripMenuItem();
@@ -90,26 +90,26 @@
             // менюToolStripMenuItem
             // 
             this.менюToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ToolStripMenuItem,
-            this.открытьКодToolStripMenuItem,
+            this.openText,
+            this.openCode,
             this.сохранитьToolStripMenuItem});
             this.менюToolStripMenuItem.Name = "менюToolStripMenuItem";
             this.менюToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.менюToolStripMenuItem.Text = "Файл";
             // 
-            // ToolStripMenuItem
+            // openText
             // 
-            this.ToolStripMenuItem.Name = "ToolStripMenuItem";
-            this.ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.ToolStripMenuItem.Text = "Открыть текст";
-            this.ToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
+            this.openText.Name = "openText";
+            this.openText.Size = new System.Drawing.Size(180, 22);
+            this.openText.Text = "Открыть текст";
+            this.openText.Click += new System.EventHandler(this.openText_Click);
             // 
-            // открытьКодToolStripMenuItem
+            // openCode
             // 
-            this.открытьКодToolStripMenuItem.Name = "открытьКодToolStripMenuItem";
-            this.открытьКодToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.открытьКодToolStripMenuItem.Text = "Открыть код";
-            this.открытьКодToolStripMenuItem.Click += new System.EventHandler(this.открытьКодToolStripMenuItem_Click);
+            this.openCode.Name = "openCode";
+            this.openCode.Size = new System.Drawing.Size(180, 22);
+            this.openCode.Text = "Открыть код";
+            this.openCode.Click += new System.EventHandler(this.openCode_Click);
             // 
             // сохранитьToolStripMenuItem
             // 
@@ -123,14 +123,14 @@
             // SaveCodeBtn
             // 
             this.SaveCodeBtn.Name = "SaveCodeBtn";
-            this.SaveCodeBtn.Size = new System.Drawing.Size(180, 22);
+            this.SaveCodeBtn.Size = new System.Drawing.Size(163, 22);
             this.SaveCodeBtn.Text = "Сохранить код";
             this.SaveCodeBtn.Click += new System.EventHandler(this.SaveCodeBtn_Click);
             // 
             // SaveTextBtn
             // 
             this.SaveTextBtn.Name = "SaveTextBtn";
-            this.SaveTextBtn.Size = new System.Drawing.Size(180, 22);
+            this.SaveTextBtn.Size = new System.Drawing.Size(163, 22);
             this.SaveTextBtn.Text = "Сохранить текст";
             this.SaveTextBtn.Click += new System.EventHandler(this.SaveTextBtn_Click);
             // 
@@ -177,7 +177,7 @@
             this.label2.Size = new System.Drawing.Size(0, 13);
             this.label2.TabIndex = 16;
             // 
-            // Form1
+            // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -194,7 +194,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.Name = "Form";
             this.Text = "Алгоритм Хаффмана";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -209,10 +209,10 @@
         private System.Windows.Forms.Button decodeBtn;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem менюToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openText;
         private System.Windows.Forms.RichTextBox textBox;
         private System.Windows.Forms.RichTextBox compressedTextBox;
-        private System.Windows.Forms.ToolStripMenuItem открытьКодToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openCode;
         private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem SaveCodeBtn;
         private System.Windows.Forms.ToolStripMenuItem SaveTextBtn;

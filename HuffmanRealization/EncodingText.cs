@@ -8,23 +8,22 @@ using System.Windows.Forms;
 
 namespace HuffmanRealization
 {
-    public class EncodingHuffman
+    public class EncodingText
     {
-        public static Node Root { get; private set; }
-        public static string RootCode { get; set; }
-        public static Dictionary<char?, string> BytesStr { get; set; }
+        public static Node Root { get; private set; } // Свойство дерева
+        public static string RootCode { get; set; } // Свойство двоичного кода дерева 
+        public static Dictionary<char?, string> BinaryStr { get; set; } // Словарь символ - двоичный код
 
+        // Назначение символам двоичное представление в свойстве BinaryStr
         private static Dictionary<char?, string> AssignBytesWrapper(Node root, string n)
         {
-            BytesStr = new Dictionary<char?, string>();
-            AssignBytes(root, n, BytesStr);
-            return BytesStr;
+            BinaryStr = new Dictionary<char?, string>();
+            AssignBytes(root, n, BinaryStr);
+            return BinaryStr;
         }
 
         private static void AssignBytes(Node node, string n, Dictionary<char?, string> bytesStr)
         {
-            
-
             if (node.LeftNode != null)
                 AssignBytes(node.LeftNode, n + "0", bytesStr);
 
@@ -68,6 +67,7 @@ namespace HuffmanRealization
             return nodeList;
         }
 
+        // Формирование итоговой строки на вывод
         private static string MakeCompressedString(string str, Dictionary<char?, string> bytesStr)
         {
             string compressedStr = "";
@@ -78,29 +78,37 @@ namespace HuffmanRealization
             return compressedStr;
         }
 
-
+        // Функция кодирования по Хаффману
         public static string EncodeHuffman(string str)
         {
+            //Если строка пустая, бросить исключение
             if(str == "")
             {
                 throw new Exception();
             }
+
+            // Создание словаря
             List<KeyValuePair<char, int>> dictionaryList = MakeList(str);
+
+            //Создание массива узлов
             List<Node> nodeList = GetNodeList(dictionaryList);
 
+            //Создание дерева
             Root = Node.MakeTreeFromEnds(nodeList);
 
+            //Назначение символам их двоичные коды
             Dictionary<char?, string> binaryStr = AssignBytesWrapper(Root, dictionaryList.Count == 1 ? "0" : "");
 
-            string compressedString = MakeCompressedString(str, binaryStr);
-
-            return compressedString;
+            // Возвращение полученной строки
+            return MakeCompressedString(str, binaryStr);
         }
+
+        // Кодирование дерева
         public static string EncodeTree(Node node)
         {
             string s = "";
             Run(node, ref s);
-            foreach (char c in BytesStr.Keys)
+            foreach (char c in BinaryStr.Keys)
             {
                 var bytes = Encoding.GetEncoding(1251).GetBytes(c.ToString());
                 var binstr = string.Join("", bytes.Select(b => Convert.ToString(b, 2)));
@@ -110,6 +118,10 @@ namespace HuffmanRealization
             return s;
 
         }
+
+        //Создание двоичного представления по принципу:
+        //Если отдаляемся от корня, то пишем 1
+        //Если приближаемся, пишем 0
         private static void Run(Node node, ref string s)
         {
             if (node.LeftNode != null)

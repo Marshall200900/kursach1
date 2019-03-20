@@ -7,12 +7,13 @@ using System.Windows.Forms;
 
 namespace HuffmanRealization
 {
+    // Класс бинарного дерева
     public class Node
     {
-        public char? Symbol { get; set; }
-        public Node LeftNode { get; set; }
-        public Node RightNode { get; set; }
-        private int weight;
+        public char? Symbol { get; set; } // Свойство символа (может равняться null)
+        public Node LeftNode { get; set; } // Свойство левого поддерева
+        public Node RightNode { get; set; } // Свойство правого поддерева
+        private int weight; // Свойства веса узла
         public int Weight
         {
             get
@@ -24,6 +25,7 @@ namespace HuffmanRealization
                 if (value < 0) Weight = 0; else weight = value;
             }
         }
+
         public Node(int weight, char? symbol = null)
         {
             Weight = weight;
@@ -33,11 +35,14 @@ namespace HuffmanRealization
         {
             LeftNode = left;
             RightNode = right;
+            // Назначение веса узлу, если у него есть поддеревья, то назначить вес, равный сумме весов поддеревьев
             Weight = (left != null ? left.Weight : 0) + (right != null ? right.Weight : 0);
             Symbol = symbol;
 
 
         }
+
+        // Нахождение количества конечных узлов
         public int FindNumberOfEnds()
         {
             int number = 0;
@@ -59,6 +64,7 @@ namespace HuffmanRealization
                 i++;
             }
         }
+
         //Создание дерева из конечных узлов
         public static Node MakeTreeFromEnds(List<Node> nodes)
         {
@@ -69,6 +75,7 @@ namespace HuffmanRealization
             return nodes.First();
         }
 
+        // Назначение символов конечным узлам дерева
         public static void AttachSymbols(Node node, ref string s)
         {
             if(node.LeftNode != null)
@@ -108,6 +115,7 @@ namespace HuffmanRealization
                 pos2 = 0;
             }
             
+            // Нахождение первого минимума
             for(int i = 0; i < nodes.Count; i++)
             {
                 if (nodes[i].Weight < min.Weight)
@@ -118,6 +126,7 @@ namespace HuffmanRealization
                 }
             }
             
+            // Нахождение второго минимума
             for (int i = 0; i < nodes.Count; i++)
             {
                 if (nodes[i].Weight < min2.Weight && i != pos)
@@ -127,6 +136,7 @@ namespace HuffmanRealization
 
                 }
             }
+
             nodes.Remove(min);
             nodes.Remove(min2);
             nodes.Add(new Node(min, min2));
