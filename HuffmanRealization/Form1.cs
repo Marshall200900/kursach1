@@ -43,6 +43,10 @@ namespace HuffmanRealization
 
         private void encodeBtn_Click(object sender, EventArgs e)
         {
+            if(!(Encoding.GetEncoding(1251).GetByteCount(textBox.Text) == textBox.Text.Length))
+            {
+                
+            }
             try
             {
                 compressedTextBox.Text = EncodingHuffman.EncodeHuffman(textBox.Text);
@@ -59,8 +63,9 @@ namespace HuffmanRealization
             encodedStrWithTree = false;
             EncodedButtons();
 
-            MessageBox.Show("Коэффициент сжатия - "+string.Format("{0:N2}", cooficient));
-            
+            label2.Text = "Коэффициент сжатия - " + string.Format("{0:N2}", cooficient);
+
+
 
         }
 
@@ -88,6 +93,7 @@ namespace HuffmanRealization
             }
             textBox.Text = decompressedText;
             compressedTextBox.Text = "";
+            label2.Text = "";
             DecodedButtons();
         }
 
@@ -158,7 +164,7 @@ namespace HuffmanRealization
                 return;
             }
             double cooficient = textBox.Text.Length * 8 / (double)encodedStr.Length;
-            MessageBox.Show("Коэффициент сжатия - " + string.Format("{0:N2}", cooficient));
+            label2.Text = "Коэффициент сжатия - " + string.Format("{0:N2}", cooficient);
 
             encodedStrWithTree = true;
             textBox.Text = "";

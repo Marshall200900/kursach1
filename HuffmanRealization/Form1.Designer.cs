@@ -43,6 +43,7 @@
             this.textBox = new System.Windows.Forms.RichTextBox();
             this.compressedTextBox = new System.Windows.Forms.RichTextBox();
             this.encodeTreeBtn = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -122,14 +123,14 @@
             // SaveCodeBtn
             // 
             this.SaveCodeBtn.Name = "SaveCodeBtn";
-            this.SaveCodeBtn.Size = new System.Drawing.Size(163, 22);
+            this.SaveCodeBtn.Size = new System.Drawing.Size(180, 22);
             this.SaveCodeBtn.Text = "Сохранить код";
             this.SaveCodeBtn.Click += new System.EventHandler(this.SaveCodeBtn_Click);
             // 
             // SaveTextBtn
             // 
             this.SaveTextBtn.Name = "SaveTextBtn";
-            this.SaveTextBtn.Size = new System.Drawing.Size(163, 22);
+            this.SaveTextBtn.Size = new System.Drawing.Size(180, 22);
             this.SaveTextBtn.Text = "Сохранить текст";
             this.SaveTextBtn.Click += new System.EventHandler(this.SaveTextBtn_Click);
             // 
@@ -143,7 +144,7 @@
             // textBox
             // 
             this.textBox.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox.Location = new System.Drawing.Point(15, 27);
+            this.textBox.Location = new System.Drawing.Point(12, 27);
             this.textBox.Name = "textBox";
             this.textBox.Size = new System.Drawing.Size(302, 293);
             this.textBox.TabIndex = 11;
@@ -154,7 +155,7 @@
             this.compressedTextBox.Location = new System.Drawing.Point(346, 27);
             this.compressedTextBox.Name = "compressedTextBox";
             this.compressedTextBox.ReadOnly = true;
-            this.compressedTextBox.Size = new System.Drawing.Size(302, 293);
+            this.compressedTextBox.Size = new System.Drawing.Size(302, 239);
             this.compressedTextBox.TabIndex = 12;
             this.compressedTextBox.Text = "";
             // 
@@ -168,12 +169,21 @@
             this.encodeTreeBtn.UseVisualStyleBackColor = true;
             this.encodeTreeBtn.Click += new System.EventHandler(this.encodeWithTreeBtn_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(346, 284);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 13);
+            this.label2.TabIndex = 16;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(665, 370);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.encodeTreeBtn);
             this.Controls.Add(this.compressedTextBox);
             this.Controls.Add(this.textBox);
@@ -208,6 +218,7 @@
         private System.Windows.Forms.ToolStripMenuItem SaveTextBtn;
         private System.Windows.Forms.ToolStripMenuItem clearBtn;
         private System.Windows.Forms.Button encodeTreeBtn;
+        private System.Windows.Forms.Label label2;
     }
 }
 
