@@ -49,7 +49,7 @@
             // 
             // encodeBtn
             // 
-            this.encodeBtn.Location = new System.Drawing.Point(15, 326);
+            this.encodeBtn.Location = new System.Drawing.Point(12, 326);
             this.encodeBtn.Name = "encodeBtn";
             this.encodeBtn.Size = new System.Drawing.Size(147, 40);
             this.encodeBtn.TabIndex = 1;
@@ -67,7 +67,7 @@
             // 
             // decodeBtn
             // 
-            this.decodeBtn.Location = new System.Drawing.Point(422, 326);
+            this.decodeBtn.Location = new System.Drawing.Point(423, 326);
             this.decodeBtn.Name = "decodeBtn";
             this.decodeBtn.Size = new System.Drawing.Size(147, 40);
             this.decodeBtn.TabIndex = 8;
@@ -144,6 +144,7 @@
             // textBox
             // 
             this.textBox.BackColor = System.Drawing.SystemColors.Window;
+            this.textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox.Location = new System.Drawing.Point(12, 27);
             this.textBox.Name = "textBox";
             this.textBox.Size = new System.Drawing.Size(302, 293);
@@ -152,16 +153,17 @@
             // 
             // compressedTextBox
             // 
+            this.compressedTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.compressedTextBox.Location = new System.Drawing.Point(346, 27);
             this.compressedTextBox.Name = "compressedTextBox";
             this.compressedTextBox.ReadOnly = true;
-            this.compressedTextBox.Size = new System.Drawing.Size(302, 239);
+            this.compressedTextBox.Size = new System.Drawing.Size(302, 255);
             this.compressedTextBox.TabIndex = 12;
             this.compressedTextBox.Text = "";
             // 
             // encodeTreeBtn
             // 
-            this.encodeTreeBtn.Location = new System.Drawing.Point(170, 326);
+            this.encodeTreeBtn.Location = new System.Drawing.Point(167, 326);
             this.encodeTreeBtn.Name = "encodeTreeBtn";
             this.encodeTreeBtn.Size = new System.Drawing.Size(147, 40);
             this.encodeTreeBtn.TabIndex = 15;
@@ -172,7 +174,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(346, 284);
+            this.label2.Location = new System.Drawing.Point(343, 298);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(0, 13);
             this.label2.TabIndex = 16;
@@ -194,6 +196,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "Form";
             this.Text = "Алгоритм Хаффмана";
             this.menuStrip1.ResumeLayout(false);
