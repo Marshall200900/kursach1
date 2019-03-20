@@ -96,54 +96,6 @@ namespace HuffmanRealization
         }
 
 
-        private void openText_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                textBox.Text = DialogWindows.Load(); // Загрузка текста из файла
-            }
-            catch (Exception)
-            {
-                return;
-            }
-
-            // Проверка на корректность кодировки
-            if (!(Encoding.GetEncoding(1251).GetByteCount(textBox.Text) == textBox.Text.Length))
-            {
-                MessageBox.Show("Неверная кодировка. Откройте другой файл.");
-                textBox.Text = "";
-                return;
-            }
-            DecodedButtons();
-        }
-
-        private void openCode_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                compressedTextBox.Text = DialogWindows.Load(true); // Загрузка кода из файла
-            }
-            catch (Exception)
-            {
-                return;
-            }
-
-            // Проверка на наличие символов, помимо 1, 0 и перевода строки
-            foreach (char c in compressedTextBox.Text)
-            {
-                if (!(c == '1' || c == '0'||c==Environment.NewLine[0] || c == Environment.NewLine[1]))
-                {
-                    MessageBox.Show("Строка содержит символы, помимо 1 или 0");
-                    ClearToolStripMenuItem_Click(sender, e);
-                    return;
-                }
-            }
-
-            compressedTextBox.Text = compressedTextBox.Text.Replace("\n",string.Empty); // Удаление символов перевода строки
-            EncodedButtons();
-            encodedStrWithTree = true;
-        }
-
         // Очистить поля и привести все кнопки в положение "не закодировано"
         private void ClearToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -200,6 +152,54 @@ namespace HuffmanRealization
 
         }
 
+        private void OpenText_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                textBox.Text = DialogWindows.Load(); // Загрузка текста из файла
+            }
+            catch (Exception)
+            {
+                return;
+            }
 
+            // Проверка на корректность кодировки
+            if (!(Encoding.GetEncoding(1251).GetByteCount(textBox.Text) == textBox.Text.Length))
+            {
+                MessageBox.Show("Неверная кодировка. Откройте другой файл.");
+                textBox.Text = "";
+                return;
+            }
+            DecodedButtons();
+            compressedTextBox.Text = "";
+        }
+
+        private void OpenCode_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                compressedTextBox.Text = DialogWindows.Load(true); // Загрузка кода из файла
+            }
+            catch (Exception)
+            {
+                return;
+            }
+
+            // Проверка на наличие символов, помимо 1, 0 и перевода строки
+            foreach (char c in compressedTextBox.Text)
+            {
+                if (!(c == '1' || c == '0' || c == Environment.NewLine[0] || c == Environment.NewLine[1]))
+                {
+                    MessageBox.Show("Строка содержит символы, помимо 1 или 0");
+                    ClearToolStripMenuItem_Click(sender, e);
+                    return;
+                }
+            }
+
+            compressedTextBox.Text = compressedTextBox.Text.Replace("\n", string.Empty); // Удаление символов перевода строки
+            EncodedButtons();
+            encodedStrWithTree = true;
+            textBox.Text = "";
+        }
     }
 }

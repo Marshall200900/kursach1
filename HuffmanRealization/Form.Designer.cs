@@ -35,7 +35,6 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.менюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openText = new System.Windows.Forms.ToolStripMenuItem();
-            this.openCode = new System.Windows.Forms.ToolStripMenuItem();
             this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveCodeBtn = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveTextBtn = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,6 +43,8 @@
             this.compressedTextBox = new System.Windows.Forms.RichTextBox();
             this.encodeTreeBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.открытьТекстToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.открытьКодToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -91,7 +92,6 @@
             // 
             this.менюToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openText,
-            this.openCode,
             this.сохранитьToolStripMenuItem});
             this.менюToolStripMenuItem.Name = "менюToolStripMenuItem";
             this.менюToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
@@ -99,17 +99,12 @@
             // 
             // openText
             // 
+            this.openText.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.открытьТекстToolStripMenuItem,
+            this.открытьКодToolStripMenuItem});
             this.openText.Name = "openText";
             this.openText.Size = new System.Drawing.Size(180, 22);
-            this.openText.Text = "Открыть текст";
-            this.openText.Click += new System.EventHandler(this.openText_Click);
-            // 
-            // openCode
-            // 
-            this.openCode.Name = "openCode";
-            this.openCode.Size = new System.Drawing.Size(180, 22);
-            this.openCode.Text = "Открыть код";
-            this.openCode.Click += new System.EventHandler(this.openCode_Click);
+            this.openText.Text = "Открыть";
             // 
             // сохранитьToolStripMenuItem
             // 
@@ -123,14 +118,14 @@
             // SaveCodeBtn
             // 
             this.SaveCodeBtn.Name = "SaveCodeBtn";
-            this.SaveCodeBtn.Size = new System.Drawing.Size(163, 22);
+            this.SaveCodeBtn.Size = new System.Drawing.Size(180, 22);
             this.SaveCodeBtn.Text = "Сохранить код";
             this.SaveCodeBtn.Click += new System.EventHandler(this.SaveCodeBtn_Click);
             // 
             // SaveTextBtn
             // 
             this.SaveTextBtn.Name = "SaveTextBtn";
-            this.SaveTextBtn.Size = new System.Drawing.Size(163, 22);
+            this.SaveTextBtn.Size = new System.Drawing.Size(180, 22);
             this.SaveTextBtn.Text = "Сохранить текст";
             this.SaveTextBtn.Click += new System.EventHandler(this.SaveTextBtn_Click);
             // 
@@ -179,6 +174,20 @@
             this.label2.Size = new System.Drawing.Size(0, 13);
             this.label2.TabIndex = 16;
             // 
+            // открытьТекстToolStripMenuItem
+            // 
+            this.открытьТекстToolStripMenuItem.Name = "открытьТекстToolStripMenuItem";
+            this.открытьТекстToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.открытьТекстToolStripMenuItem.Text = "Открыть текст";
+            this.открытьТекстToolStripMenuItem.Click += new System.EventHandler(this.OpenText_Click);
+            // 
+            // открытьКодToolStripMenuItem
+            // 
+            this.открытьКодToolStripMenuItem.Name = "открытьКодToolStripMenuItem";
+            this.открытьКодToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.открытьКодToolStripMenuItem.Text = "Открыть код";
+            this.открытьКодToolStripMenuItem.Click += new System.EventHandler(this.OpenCode_Click);
+            // 
             // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -215,13 +224,14 @@
         private System.Windows.Forms.ToolStripMenuItem openText;
         private System.Windows.Forms.RichTextBox textBox;
         private System.Windows.Forms.RichTextBox compressedTextBox;
-        private System.Windows.Forms.ToolStripMenuItem openCode;
         private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem SaveCodeBtn;
         private System.Windows.Forms.ToolStripMenuItem SaveTextBtn;
         private System.Windows.Forms.ToolStripMenuItem clearBtn;
         private System.Windows.Forms.Button encodeTreeBtn;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ToolStripMenuItem открытьТекстToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem открытьКодToolStripMenuItem;
     }
 }
 
